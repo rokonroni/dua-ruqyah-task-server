@@ -18,6 +18,19 @@ app.get('/api/categories', (req, res) => {
     res.json(rows);
   });
 });
+// Endpoint to fetch all duas
+app.get('/api/duas', (req, res) => {
+  db.all('SELECT * FROM dua', (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    res.json(rows);
+  });
+});
+
 
 
 
