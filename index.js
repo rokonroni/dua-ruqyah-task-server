@@ -32,6 +32,18 @@ app.get('/api/duas', (req, res) => {
 });
 
 
+// Endpoint to fetch all subcategories
+app.get('/api/subcategories', (req, res) => {
+  db.all('SELECT * FROM sub_category', (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    res.json(rows);
+  });
+});
 
 
 // Start the server
